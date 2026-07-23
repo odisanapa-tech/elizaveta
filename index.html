@@ -87,61 +87,71 @@
   /* HERO - editorial cover */
   .hero{
     position:relative;
-    min-height:calc(100vh - 64px);
-    display:grid;
-    grid-template-columns:1fr;
-    align-items:end;
-    overflow:hidden;
     background:var(--navy-deep);
-  }
-  .hero-img{
-    position:absolute;inset:0;
-    background:#0e1620 center/cover no-repeat;
-    background-image:linear-gradient(180deg, rgba(19,30,42,.15) 0%, rgba(19,30,42,.35) 50%, rgba(19,30,42,.85) 100%), url('img/hat.jpg');
-    filter:saturate(.88);
+    color:var(--cream);
+    overflow:hidden;
   }
   .hero-inner{
-    position:relative;z-index:2;
-    padding:56px 40px 72px;
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px;
-    align-items:end;
-    max-width:1240px;margin:0 auto;width:100%;
+    grid-template-columns:1.05fr .95fr;
+    gap:80px;
+    align-items:center;
+    padding:80px 40px 96px;
+    max-width:1240px;margin:0 auto;
+    min-height:calc(100vh - 64px);
   }
-  .hero-masthead{
-    position:absolute;top:44px;left:40px;right:40px;
-    display:flex;justify-content:space-between;
-    color:var(--cream);opacity:.7;
-    font-size:10px;letter-spacing:.34em;text-transform:uppercase;
-  }
+  .hero-copy{max-width:34em}
   .hero h1{
-    font-size:clamp(46px,7.4vw,108px);
+    font-size:clamp(42px,6.4vw,88px);
     color:var(--cream);
-    line-height:1.02;
+    line-height:1.04;
     letter-spacing:-.005em;
-    margin:16px 0 26px;
-    max-width:14ch;
+    margin:22px 0 30px;
   }
   .hero h1 em{font-style:italic;color:var(--cream);font-weight:400}
   .hero .lead{
-    color:var(--cream);opacity:.9;
-    font-weight:300;font-size:17px;line-height:1.6;
+    color:var(--cream);opacity:.88;
+    font-weight:300;font-size:18px;line-height:1.6;
     max-width:32em;
   }
-  .hero-actions{margin-top:34px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+  .hero-actions{margin-top:44px;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
   .btn{display:inline-block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:15px 30px;transition:.35s;font-weight:500}
   .btn-solid{background:var(--cream);color:var(--navy)}
   .btn-solid:hover{background:var(--bronze);color:var(--navy-deep)}
   .btn-ghost{color:var(--cream);border-bottom:1px solid var(--cream);padding:15px 4px 7px}
   .btn-ghost:hover{color:var(--bronze);border-color:var(--bronze)}
-  .hero-right{align-self:end;text-align:right}
-  .hero-right .cap{color:var(--cream);opacity:.65;font-size:11px;letter-spacing:.28em;text-transform:uppercase}
-  .hero-right .cap-serif{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream);opacity:.85;margin-top:10px;letter-spacing:.01em}
+
+  /* photo-slot: works with or without image */
+  .photo-slot{
+    position:relative;
+    aspect-ratio:4/5;
+    background:
+      radial-gradient(120% 80% at 30% 30%, rgba(169,136,92,.14), transparent 60%),
+      linear-gradient(180deg, #1a2634 0%, #0e1620 100%);
+    border:1px solid rgba(169,136,92,.28);
+    overflow:hidden;
+  }
+  .photo-slot img{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    filter:saturate(.92);
+  }
+  .photo-slot .frame-cap{
+    position:absolute;left:20px;bottom:20px;right:20px;
+    display:flex;justify-content:space-between;align-items:end;
+    color:var(--cream);opacity:.7;
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    pointer-events:none;
+  }
+  .photo-slot .frame-cap .serif-mark{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;
+    letter-spacing:.02em;text-transform:none;color:var(--bronze);opacity:.9;
+  }
+  .hero-photo{width:100%;max-width:520px;justify-self:end}
   @media(max-width:900px){
-    .hero-inner{grid-template-columns:1fr;gap:36px;padding:110px 22px 60px}
-    .hero-masthead{top:22px;left:22px;right:22px;font-size:9px}
-    .hero-right{text-align:left}
+    .hero-inner{grid-template-columns:1fr;gap:44px;padding:60px 22px 70px;min-height:0}
+    .hero-photo{max-width:100%;justify-self:stretch}
   }
 
   /* SECTION base */
@@ -175,8 +185,8 @@
   .reco .eye,.reco .folio{color:var(--bronze)}
   .toc{border-top:1px solid var(--line-light)}
   .toc-row{
-    display:grid;grid-template-columns:120px 1fr 200px;gap:40px;
-    padding:44px 0;
+    display:grid;grid-template-columns:120px 1fr;gap:40px;
+    padding:48px 0;
     border-bottom:1px solid var(--line-light);
     align-items:baseline;
     transition:padding .4s;
@@ -188,18 +198,13 @@
   }
   .toc-row .text{
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(22px,2.4vw,30px);
-    line-height:1.35;color:var(--cream);
+    font-size:clamp(22px,2.2vw,28px);
+    line-height:1.4;color:var(--cream);
     font-weight:400;
-    max-width:32ch;
-  }
-  .toc-row .tag{
-    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--bronze);text-align:right;opacity:.85;
+    max-width:44ch;
   }
   @media(max-width:720px){
     .toc-row{grid-template-columns:60px 1fr;gap:16px;padding:30px 0}
-    .toc-row .tag{display:none}
   }
 
   /* WHAT - editorial spread */
@@ -339,12 +344,11 @@
   .person{background:var(--cream)}
   .person-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:100px;align-items:start}
   .person-photo{position:relative;border:1px solid var(--line);padding:14px;background:var(--cream-deep)}
-  .person-photo .frame{position:relative;aspect-ratio:4/5;background:linear-gradient(180deg,var(--cream-deep),#dccfb4);overflow:hidden}
-  .person-photo img{width:100%;height:100%;display:block;object-fit:cover;filter:saturate(.92)}
-  .person-photo .stamp{
-    position:absolute;left:14px;bottom:14px;
-    background:var(--navy);color:var(--cream);
-    padding:12px 18px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+  .person-photo .photo-slot{
+    background:
+      radial-gradient(120% 80% at 30% 30%, rgba(122,59,52,.10), transparent 60%),
+      linear-gradient(180deg, #e6dcc7 0%, #d3c6ab 100%);
+    border-color:rgba(28,42,58,.14);
   }
   .person-name{
     font-size:clamp(36px,4.4vw,56px);color:var(--navy);
@@ -455,24 +459,20 @@
 
 <!-- HERO -->
 <header class="hero">
-  <div class="hero-img" role="img" aria-label="Портрет Елизаветы Тэйван, тихий свет, состояние покоя"></div>
-  <div class="hero-masthead">
-    <span>Vol. I - Тихая практика</span>
-    <span>Москва - MMXXVI</span>
-  </div>
   <div class="hero-inner">
-    <div>
-      <span class="folio on-dark" style="color:var(--bronze)">Голосовой велнесс - Частная практика</span>
+    <div class="hero-copy">
+      <span class="folio" style="color:var(--bronze)">Голосовой велнесс - Частная практика</span>
       <h1>Место, где можно наконец <em>замолчать.</em></h1>
-      <p class="lead">Час, за который тело выходит из напряжения, которое вы давно перестали замечать.</p>
+      <p class="lead">Час, за который тело выходит из напряжения, которое вы давно перестали замечать. Без пения, без сцены, без «правильно и неправильно». Приходите к себе, а не на выступление.</p>
       <div class="hero-actions">
         <a href="#cta" class="btn btn-solid">Оставить запрос</a>
         <a href="#practice" class="btn btn-ghost">Что это</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="cap">Издание одного экземпляра</div>
-      <div class="cap-serif">для того, кто держит.</div>
+    <div class="hero-photo">
+      <div class="photo-slot">
+        <img src="img/hero.jpg" alt="Елизавета Тэйван" onerror="this.style.display='none'">
+      </div>
     </div>
   </div>
 </header>
@@ -485,23 +485,20 @@
         <span class="folio">§ 01 / 07</span>
         <span class="eye">Узнавание</span>
       </div>
-      <h2>Вы умеете держать удар. Труднее - <em>выключаться.</em></h2>
+      <h2>Держать нагрузку вы умеете. Труднее - <em>выйти из нее.</em></h2>
     </div>
     <div class="toc">
       <div class="toc-row rev">
         <div class="rn">I.</div>
-        <div class="text">Днем держите лицо и голос ровными. Вечером не хотите произнести ни слова.</div>
-        <div class="tag">Собранность</div>
+        <div class="text">Днем держите лицо и голос ровными. Вечером не хотите произнести ни слова - даже дома, даже близким. Голос устал не от работы, а от того, что не отпускался весь день.</div>
       </div>
       <div class="toc-row rev">
         <div class="rn">II.</div>
-        <div class="text">Спите, но не отдыхаете. Плечи не опускались уже давно.</div>
-        <div class="tag">Тело в обороне</div>
+        <div class="text">Спите свои семь часов и встаете уставшим. Плечи, кажется, не опускались с прошлой зимы. Тело собрано даже во сне, потому что готовность стала фоном.</div>
       </div>
       <div class="toc-row rev">
         <div class="rn">III.</div>
-        <div class="text">Устойчивость сильная. А выключиться не выходит, пока тело не отключит само.</div>
-        <div class="tag">Перегрев ресурса</div>
+        <div class="text">Устойчивость природная, сильная. Но выйти из режима самому не получается. Тело выключит вас позже, само, обычно резко и не в то время, которое вы выбирали.</div>
       </div>
     </div>
   </div>
@@ -657,8 +654,9 @@
     </div>
     <div class="person-grid">
       <div class="person-photo rev">
-        <div class="frame"><img src="img/notes.jpg" alt="Елизавета Тэйван, портрет"></div>
-        <span class="stamp">Портрет автора</span>
+        <div class="photo-slot" style="aspect-ratio:4/5">
+          <img src="img/portrait.jpg" alt="Елизавета Тэйван, портрет" onerror="this.style.display='none'">
+        </div>
       </div>
       <div class="rev">
         <div class="person-name">Елизавета Тэйван</div>
