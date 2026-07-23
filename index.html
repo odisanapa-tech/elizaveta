@@ -170,18 +170,29 @@
     font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;
     letter-spacing:.02em;text-transform:none;color:var(--bronze);opacity:.9;
   }
-  .hero-photo{width:100%;max-width:560px;justify-self:end}
-  /* dissolve hero photo edges into hero background */
+  .hero-photo{width:100%;max-width:620px;justify-self:end}
+  /* dissolve hero photo edges into the navy-deep background */
   .hero-photo .photo-slot{
     background:transparent;
     border:0;
     aspect-ratio:4/5;
-    -webkit-mask-image:radial-gradient(ellipse 85% 92% at 55% 42%, #000 46%, rgba(0,0,0,.7) 68%, transparent 100%);
-    mask-image:radial-gradient(ellipse 85% 92% at 55% 42%, #000 46%, rgba(0,0,0,.7) 68%, transparent 100%);
+    overflow:visible;
   }
   .hero-photo .photo-slot img{
     object-position:center 22%;
-    filter:saturate(.9) contrast(1.02);
+    filter:saturate(.88) contrast(1.02);
+  }
+  /* vignette overlay in the exact hero color - hides the rectangular edge */
+  .hero-photo .photo-slot::after{
+    content:"";
+    position:absolute;inset:0;
+    pointer-events:none;
+    background:
+      radial-gradient(ellipse 78% 88% at 55% 46%, transparent 30%, rgba(19,30,42,.35) 60%, var(--navy-deep) 96%),
+      linear-gradient(to right,  var(--navy-deep) 0%, transparent 14%),
+      linear-gradient(to left,   var(--navy-deep) 0%, transparent 14%),
+      linear-gradient(to top,    var(--navy-deep) 0%, transparent 14%),
+      linear-gradient(to bottom, var(--navy-deep) 0%, transparent 14%);
   }
   @media(max-width:900px){
     .hero-inner{grid-template-columns:1fr;gap:20px;padding:110px 22px 60px;min-height:0}
