@@ -435,33 +435,34 @@
     padding:12px 0;
   }
   .chart-row{
-    padding:26px 0;
+    padding:30px 0;
     border-bottom:1px solid var(--line-light);
   }
   .chart-row:last-child{border-bottom:0}
   .chart-lbl{
-    display:flex;justify-content:space-between;align-items:baseline;
-    font-size:14px;letter-spacing:.02em;color:var(--cream);opacity:.92;
-    margin-bottom:12px;font-weight:300;
+    display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+    font-size:clamp(18px,1.7vw,22px);letter-spacing:.005em;color:var(--cream);opacity:.95;
+    margin-bottom:18px;font-weight:400;
   }
   .chart-lbl .delta{
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:22px;color:var(--bronze);letter-spacing:.02em;
+    font-size:clamp(26px,2.4vw,34px);color:var(--bronze);letter-spacing:.02em;
+    white-space:nowrap;
   }
-  .chart-bars{position:relative;height:14px}
+  .chart-bars{position:relative;height:18px}
   .chart-bar{
-    position:absolute;left:0;top:6px;height:2px;
-    background:var(--line-light-strong);
+    position:absolute;left:0;top:6px;height:3px;
+    background:var(--line-light-strong);border-radius:2px;
   }
   .chart-bar.before{background:var(--line-light-strong);width:100%}
-  .chart-bar.after{background:var(--bronze);height:2px}
+  .chart-bar.after{background:var(--bronze);height:3px}
   .chart-legend{
-    display:flex;gap:26px;justify-content:flex-end;margin-top:22px;
-    font-size:10px;letter-spacing:.24em;text-transform:uppercase;
-    color:var(--cream);opacity:.7;
+    display:flex;gap:32px;justify-content:flex-end;margin-top:28px;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--cream);opacity:.85;font-weight:500;
   }
-  .chart-legend span{display:inline-flex;align-items:center;gap:10px}
-  .chart-legend i{display:inline-block;width:18px;height:2px}
+  .chart-legend span{display:inline-flex;align-items:center;gap:12px}
+  .chart-legend i{display:inline-block;width:22px;height:3px;border-radius:2px}
   .chart-legend .l-before{background:var(--line-light-strong)}
   .chart-legend .l-after{background:var(--bronze)}
   @media(max-width:900px){.result-grid{grid-template-columns:1fr;gap:50px}}
