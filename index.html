@@ -279,35 +279,32 @@
   .what-body p:last-child{margin-bottom:0}
   @media(max-width:900px){.what-grid{grid-template-columns:1fr;gap:44px}}
 
-  /* WHY - three strict columns */
+  /* TWO MODES - the SPA duo */
   .why{background:var(--cream-deep)}
-  .why-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    border-top:1px solid var(--line-strong);
+  .modes{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;
+    border-top:1px solid var(--line-strong);padding-top:56px;
   }
-  .why-cell{
-    padding:56px 40px 60px 0;
-    border-right:1px solid var(--line);
-    position:relative;
+  .mode{display:flex;flex-direction:column;gap:26px}
+  .mode-photo{position:relative}
+  .mode-slot{aspect-ratio:5/4;background:linear-gradient(180deg,#2a1f18 0%,#1a1210 100%);border:1px solid rgba(28,42,58,.14);overflow:hidden}
+  .mode-slot[data-tone="warm"]{background:linear-gradient(160deg,#3b2a1e 0%,#241812 60%,#1a1210 100%)}
+  .mode-slot[data-tone="cool"]{background:linear-gradient(160deg,#26313d 0%,#1a222c 60%,#131a22 100%)}
+  .mode-tag{
+    position:absolute;left:16px;bottom:16px;
+    background:rgba(19,30,42,.72);color:var(--cream);
+    padding:9px 14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   }
-  .why-cell:last-child{border-right:0;padding-right:0}
-  .why-cell:not(:first-child){padding-left:40px}
-  .why-cell .rn{
-    font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:44px;color:var(--bronze);
-    display:block;margin-bottom:26px;line-height:1;
+  .mode-body h3{
+    font-size:clamp(26px,2.6vw,34px);color:var(--navy);
+    margin-bottom:20px;font-weight:500;line-height:1.15;
   }
-  .why-cell h3{
-    font-size:26px;color:var(--navy);
-    margin-bottom:18px;font-weight:500;
-    max-width:16ch;line-height:1.2;
-  }
-  .why-cell p{font-size:15px;opacity:.88;line-height:1.65;max-width:26em}
+  .mode-body h3 em{font-style:italic;color:var(--bordo)}
+  .mode-body p{font-size:16px;line-height:1.7;opacity:.9;margin-bottom:16px;max-width:34em;font-weight:300}
+  .mode-body .mode-for{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--navy);opacity:.85;line-height:1.5;margin-top:20px;max-width:32em}
   @media(max-width:900px){
-    .why-grid{grid-template-columns:1fr}
-    .why-cell{padding:44px 0;border-right:0;border-bottom:1px solid var(--line)}
-    .why-cell:last-child{border-bottom:0}
-    .why-cell:not(:first-child){padding-left:0}
+    .modes{grid-template-columns:1fr;gap:56px}
   }
 
   /* FORMATS - tabular */
@@ -516,9 +513,9 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <span class="folio" style="color:var(--bronze)">Голосовой велнесс - Частная практика</span>
-      <h1><span class="brand-mark">SPA</span> для вашего <em>голоса.</em></h1>
-      <p class="lead">Час, за который тело выходит из напряжения, которое вы давно перестали замечать.</p>
+      <span class="folio" style="color:var(--bronze)">Голосовой велнесс - Тихое пространство</span>
+      <h1>Попробуйте <span class="brand-mark">SPA</span> для вашего <em>голоса.</em></h1>
+      <p class="lead">Час, за который тело возвращается к себе - и вы вместе с ним. Приходите к себе, а не на выступление.</p>
       <div class="hero-actions">
         <a href="#cta" class="btn btn-solid">Оставить запрос</a>
         <a href="#practice" class="btn btn-ghost">Подробнее</a>
@@ -540,20 +537,20 @@
         <span class="folio">§ 01 / 07</span>
         <span class="eye">Узнавание</span>
       </div>
-      <h2>Держать нагрузку вы умеете. Труднее - <em>выйти из нее.</em></h2>
+      <h2>Собранной быть научились. Труднее - <em>отпускать.</em></h2>
     </div>
     <div class="toc">
       <div class="toc-row rev">
         <div class="rn">I.</div>
-        <div class="text">Днем держите лицо и голос ровными. Вечером не хотите произнести ни слова - даже дома, даже близким. Голос устал не от работы, а от того, что не отпускался весь день.</div>
+        <div class="text">К вечеру не хочется произнести ни слова - даже дома, даже с близкими. Голос устал не от работы, а от того, что весь день не отпускался.</div>
       </div>
       <div class="toc-row rev">
         <div class="rn">II.</div>
-        <div class="text">Спите свои семь часов и встаете уставшим. Плечи, кажется, не опускались с прошлой зимы. Тело собрано даже во сне, потому что готовность стала фоном.</div>
+        <div class="text">Сон есть, отдыха нет. Плечи, кажется, не опускались давно. Тело собрано даже ночью, потому что готовность стала фоном.</div>
       </div>
       <div class="toc-row rev">
         <div class="rn">III.</div>
-        <div class="text">Устойчивость природная, сильная. Но выйти из режима самому не получается. Тело выключит вас позже, само, обычно резко и не в то время, которое вы выбирали.</div>
+        <div class="text">Выключиться сама (или сам) уже не получается. Тело отключит позже - обычно резко и не в то время, которое вы выбирали.</div>
       </div>
     </div>
   </div>
@@ -570,41 +567,52 @@
       <h2>Что это.</h2>
     </div>
     <div class="what-grid">
-      <p class="what-manifesto rev">Это не пение и не урок. Никто не <em>оценивает.</em></p>
+      <p class="what-manifesto rev">Это не пение и не урок. Никто вас не <em>оценивает.</em></p>
       <div class="what-body rev">
-        <p>Голос здесь - инструмент, которым тело выходит из режима постоянной готовности. Приказать себе расслабиться нельзя. Но тело слушает голос напрямую, минуя контроль.</p>
+        <p>Голос и дыхание - тихая дверь в парасимпатику: ту часть, что отвечает за восстановление. Приказать себе расслабиться нельзя. Но тело слушает дыхание и голос напрямую, минуя контроль.</p>
         <p>Отсюда результат, который вы чувствуете за один час, а не обещание на будущее.</p>
-        <p>Формат закрытый и личный. Приходите к себе, а не на выступление.</p>
+        <p>Формат закрытый и личный. Только вы, ваше состояние и час на себя.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY -->
+<!-- TWO MODES -->
 <section id="method" class="why">
   <div class="wrap">
     <div class="sec-head">
       <div class="col-l">
         <span class="folio">§ 03 / 07</span>
-        <span class="eye">Метод</span>
+        <span class="eye">Два режима</span>
       </div>
-      <h2>Голос, а не массаж и не <em>медитация.</em></h2>
+      <h2>Два инструмента под одной <em>крышей.</em></h2>
     </div>
-    <div class="why-grid">
-      <div class="why-cell rev">
-        <span class="rn">i.</span>
-        <h3>Действие, а не процедура</h3>
-        <p>Массаж и звуковые ванны делают что-то с вами. Здесь действуете вы сами. Для того, кто не умеет просто лежать, это единственный вход без сопротивления.</p>
+    <div class="modes">
+      <div class="mode rev">
+        <div class="mode-photo">
+          <div class="photo-slot mode-slot" data-tone="warm">
+            <img src="img/space-warm.jpg" alt="" onerror="this.style.display='none'">
+          </div>
+          <span class="mode-tag">Активный режим</span>
+        </div>
+        <div class="mode-body">
+          <h3>Сам, через <em>голос</em></h3>
+          <p>Медленный выдох на звуке включает парасимпатику - ту часть, что отвечает за восстановление. Вы действуете сами, ничего с вами не делают. Час - и напряжение уходит.</p>
+          <p class="mode-for">Для тех, кто не умеет просто лежать, и для кого голос - рабочий инструмент, который к вечеру садится.</p>
+        </div>
       </div>
-      <div class="why-cell rev">
-        <span class="rn">ii.</span>
-        <h3>Через дыхание, а не через голову</h3>
-        <p>Голос связан с блуждающим нервом и диафрагмой. Медленный выдох на звуке включает парасимпатику - ту часть, что отвечает за восстановление.</p>
-      </div>
-      <div class="why-cell rev">
-        <span class="rn">iii.</span>
-        <h3>Результат виден в цифре</h3>
-        <p>Напряжение и опору замеряем по шкале до и после. Вы платите за факт, а не за веру. Никакой эзотерики.</p>
+      <div class="mode rev">
+        <div class="mode-photo">
+          <div class="photo-slot mode-slot" data-tone="cool">
+            <img src="img/space-still.jpg" alt="" onerror="this.style.display='none'">
+          </div>
+          <span class="mode-tag">Восстановительный режим</span>
+        </div>
+        <div class="mode-body">
+          <h3>Со специалистом, через <em>тело и дыхание</em></h3>
+          <p>Дыхательно-телесная процедура для тех дней, когда делать что-то самому уже нет сил. Антистресс, разгрузка после долгого напряжения, выход из выгорания.</p>
+          <p class="mode-for">Для тех, кому нужно, чтобы просто позаботились. Ничего доказывать, ничего производить. Только дыхание, тело и тишина.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -618,26 +626,26 @@
         <span class="folio">§ 04 / 07</span>
         <span class="eye">Форматы</span>
       </div>
-      <h2>Три двери. Формат - <em>под ваш запрос.</em></h2>
+      <h2>Три двери. Заходите по <em>тому, зачем пришли.</em></h2>
     </div>
     <div class="fmt-table">
       <div class="fmt-row rev">
         <div class="rn">I.</div>
-        <h3>Лично для себя</h3>
-        <p>Закрытая работа один на один. Час, за который вы выходите из перегруза и возвращаете себе тело и голос.</p>
-        <div class="who">Собственник - Управленец</div>
+        <h3>Восстановиться для себя</h3>
+        <p>Когда сели батарейки, а до отпуска ещё далеко. Час на то, чтобы тело и голос вернулись к себе - и вы вместе с ними.</p>
+        <div class="who">Разгрузка - Забота о себе</div>
       </div>
       <div class="fmt-row rev">
         <div class="rn">II.</div>
-        <h3>Для тех, кто много говорит</h3>
-        <p>Голос - ваш рабочий актив. К вечеру садится, а завтра снова говорить. Учимся звучать под нагрузкой и не терять его.</p>
-        <div class="who">Спикер - Публичное лицо</div>
+        <h3>Голос под нагрузкой</h3>
+        <p>Голос - ваш рабочий инструмент: переговоры, эфиры, класс, сцена, блог. К вечеру садится, а завтра снова говорить. Учимся звучать долго и не терять себя.</p>
+        <div class="who">Работа с голосом - Публичность</div>
       </div>
       <div class="fmt-row rev">
         <div class="rn">III.</div>
         <h3>Для команды</h3>
-        <p>Закрытый формат для первых лиц компании как элемент заботы о ключевых людях. Не тимбилдинг с песнями, а тихая разгрузка тех, на ком держится дело.</p>
-        <div class="who">Команда - Первые лица</div>
+        <p>Закрытый формат как элемент заботы о ключевых людях. Не тимбилдинг с песнями, а тихая разгрузка тех, на ком держится дело.</p>
+        <div class="who">Компания - По запросу</div>
       </div>
     </div>
   </div>
@@ -655,8 +663,8 @@
     </div>
     <div class="result-grid">
       <div class="result-body rev">
-        <p>Работа с состоянием звучит субъективно. Поэтому в начале и в конце встречи вы отмечаете по шкале от одного до десяти: уровень напряжения, спокойствие, опору, контакт с голосом.</p>
-        <p>Разница между «до» и «после» - ваш результат в цифре. Не вера, не настроение, а измеримый сдвиг, за который платит человек, привыкший считать эффект.</p>
+        <p>Работа с состоянием звучит субъективно. Поэтому в начале и в конце встречи вы сами отмечаете по шкале от одного до десяти: уровень напряжения, спокойствие, опору, контакт с голосом.</p>
+        <p>Разница между «до» и «после» - ваш результат в цифре. Не вера и не настроение, а измеримый сдвиг, который видно на бумаге.</p>
         <span class="marker">- средние значения за практику</span>
       </div>
       <div class="chart rev" aria-label="Показатели до и после встречи">
@@ -717,14 +725,15 @@
         <div class="person-name">Елизавета Тэйван</div>
         <div class="person-role">Профессиональная певица - голосовой практик</div>
         <div class="person-body">
-          <p>Работает с голосом как с инструментом состояния, а не только как с техникой пения. За этим стоит не теория, а сцена: собственный опыт звучания под давлением, когда выходить и звучать нужно вне зависимости от того, что внутри.</p>
-          <p>Именно этому она и учит - оставаться собой, когда на вас смотрят.</p>
+          <p>Работает с голосом как с инструментом состояния, а не только как с техникой пения. Ведёт два инструмента SPA: голосовую саморегуляцию и телесно-дыхательную процедуру для дней, когда сил делать что-то самому уже нет.</p>
+          <p>За этим стоит не теория, а сцена: собственный опыт звучания под давлением. С этим она и работает - помогает остаться собой, когда вы «на виду» или, наоборот, когда сил на «на виду» больше нет.</p>
         </div>
         <ul class="creds">
           <li><span class="n">01.</span><span>Участница шоу «Голос 10» на Первом канале</span></li>
           <li><span class="n">02.</span><span>Гран-при международного конкурса мастерства среди преподавателей 15 стран</span></li>
           <li><span class="n">03.</span><span>Член Федерации педагогов вокального искусства Российской Федерации</span></li>
           <li><span class="n">04.</span><span>Выступала в составе самого большого хора страны, вошедшего в Книгу рекордов Гиннеса</span></li>
+          <li><span class="n">05.</span><span>Практика работы с состоянием через дыхание, голос и тело <em style="opacity:.55;font-style:italic">- сертификация уточняется</em></span></li>
         </ul>
       </div>
     </div>
