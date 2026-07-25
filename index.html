@@ -307,36 +307,49 @@
     .modes{grid-template-columns:1fr;gap:56px}
   }
 
-  /* FORMATS - tabular */
-  .fmt-table{border-top:1px solid var(--line-strong)}
-  .fmt-row{
-    display:grid;grid-template-columns:80px 1fr;
-    gap:36px;
-    padding:52px 0;
-    border-bottom:1px solid var(--line);
-    align-items:baseline;
-    transition:padding .4s;
+  /* FORMATS - three narrow cards */
+  .fmt-cards{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    max-width:960px;margin:0 auto;
   }
-  .fmt-row:hover{padding-left:14px}
-  .fmt-row .rn{
+  .fmt-card{
+    aspect-ratio:3/4;
+    background:var(--cream-deep);
+    border:1px solid var(--line);
+    padding:30px 26px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    position:relative;overflow:hidden;
+  }
+  .fmt-card::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(ellipse 120% 60% at 50% 100%, rgba(169,136,92,.12), transparent 65%);
+    opacity:0;transition:opacity .4s ease;
+  }
+  .fmt-card:hover{
+    transform:translateY(-4px);
+    border-color:var(--bronze);
+    box-shadow:0 18px 36px rgba(28,42,58,.10);
+  }
+  .fmt-card:hover::before{opacity:1}
+  .fmt-card .rn{
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:38px;color:var(--bronze);font-weight:400;
+    font-size:46px;color:var(--bronze);line-height:1;font-weight:400;
   }
-  .fmt-row h3{
-    font-size:clamp(24px,2.4vw,32px);color:var(--navy);
-    font-weight:500;line-height:1.15;
+  .fmt-card .card-foot{display:flex;flex-direction:column;gap:16px}
+  .fmt-card .hairline{
+    display:block;width:36px;height:1px;background:var(--bronze);
+    transition:width .35s ease;
   }
-  .fmt-row p{
-    font-size:15.5px;line-height:1.65;color:var(--ink);
-    max-width:38em;font-weight:300;
+  .fmt-card:hover .hairline{width:64px}
+  .fmt-card h3{
+    font-size:clamp(20px,1.6vw,26px);color:var(--navy);
+    font-weight:500;line-height:1.2;letter-spacing:-.003em;
   }
-  .fmt-row .who{
-    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--bordo);white-space:nowrap;padding-top:8px;
-  }
-  @media(max-width:900px){
-    .fmt-row{grid-template-columns:1fr;gap:14px;padding:38px 0}
-    .fmt-row .who{padding-top:4px}
+  .fmt-card h3 em{font-style:italic;color:var(--bordo);font-weight:500}
+  @media(max-width:860px){
+    .fmt-cards{grid-template-columns:1fr;max-width:420px;gap:18px}
+    .fmt-card{aspect-ratio:5/3;padding:26px 24px}
   }
 
   /* RESULT - annual-report chart */
@@ -479,14 +492,13 @@
     padding:36px 0;
   }
   .foot-in{
-    display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:20px;
+    display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px;
     font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.55;
   }
-  .foot-in > *:nth-child(2){text-align:center}
-  .foot-in > *:nth-child(3){text-align:right}
+  .foot-in > *:nth-child(2){text-align:right}
   @media(max-width:720px){
     .foot-in{grid-template-columns:1fr;gap:10px;text-align:center}
-    .foot-in > *:nth-child(2),.foot-in > *:nth-child(3){text-align:center}
+    .foot-in > *:nth-child(2){text-align:center}
   }
 
   /* reveal */
@@ -603,18 +615,27 @@
       </div>
       <h2>Форматы</h2>
     </div>
-    <div class="fmt-table">
-      <div class="fmt-row rev">
-        <div class="rn">I.</div>
-        <h3>Восстановить себя</h3>
+    <div class="fmt-cards">
+      <div class="fmt-card rev">
+        <div class="rn">I</div>
+        <div class="card-foot">
+          <span class="hairline"></span>
+          <h3>Восстановить <em>себя</em></h3>
+        </div>
       </div>
-      <div class="fmt-row rev">
-        <div class="rn">II.</div>
-        <h3>Восстановить голос</h3>
+      <div class="fmt-card rev">
+        <div class="rn">II</div>
+        <div class="card-foot">
+          <span class="hairline"></span>
+          <h3>Восстановить <em>голос</em></h3>
+        </div>
       </div>
-      <div class="fmt-row rev">
-        <div class="rn">III.</div>
-        <h3>Корпоративные практики</h3>
+      <div class="fmt-card rev">
+        <div class="rn">III</div>
+        <div class="card-foot">
+          <span class="hairline"></span>
+          <h3>Корпоративные <em>практики</em></h3>
+        </div>
       </div>
     </div>
   </div>
@@ -726,7 +747,6 @@
   <div class="wrap foot-in">
     <div>Елизавета Тэйван - Голосовой велнесс</div>
     <div>Частная практика</div>
-    <div>Москва - MMXXVI</div>
   </div>
 </footer>
 
