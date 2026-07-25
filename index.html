@@ -310,7 +310,7 @@
   /* FORMATS - tabular */
   .fmt-table{border-top:1px solid var(--line-strong)}
   .fmt-row{
-    display:grid;grid-template-columns:80px 1.2fr 2fr auto;
+    display:grid;grid-template-columns:80px 1fr;
     gap:36px;
     padding:52px 0;
     border-bottom:1px solid var(--line);
@@ -345,6 +345,7 @@
   .result-grid{
     display:grid;grid-template-columns:1fr 1.15fr;gap:100px;align-items:start;
   }
+  .result-grid.single{grid-template-columns:1fr;max-width:840px;margin:0 auto}
   .result-body p{
     font-weight:300;opacity:.92;margin-bottom:24px;
     max-width:34em;font-size:16px;line-height:1.7;
@@ -394,7 +395,8 @@
 
   /* PERSON */
   .person{background:var(--cream)}
-  .person-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:100px;align-items:start}
+  .person-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:center}
+  .person-col{display:flex;flex-direction:column;justify-content:center}
   .person-photo{position:relative;border:1px solid var(--line);padding:14px;background:var(--cream-deep)}
   .person-photo .photo-slot{
     background:
@@ -404,24 +406,24 @@
   }
   .person-name{
     font-size:clamp(36px,4.4vw,56px);color:var(--navy);
-    margin:24px 0 6px;letter-spacing:-.005em;
+    margin:0 0 8px;letter-spacing:-.005em;
   }
   .person-role{
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    color:var(--bordo);font-size:22px;margin-bottom:38px;
+    color:var(--bordo);font-size:22px;margin-bottom:30px;
   }
   .person-body p{
     margin-bottom:22px;opacity:.92;max-width:36em;
     font-size:16px;line-height:1.7;font-weight:300;
   }
   .creds{
-    list-style:none;margin-top:44px;
+    list-style:none;margin-top:0;
     border-top:1px solid var(--line-strong);
   }
   .creds li{
-    padding:20px 0;border-bottom:1px solid var(--line);
+    padding:18px 0;border-bottom:1px solid var(--line);
     font-size:14.5px;line-height:1.5;
-    display:grid;grid-template-columns:80px 1fr;gap:24px;align-items:baseline;
+    display:grid;grid-template-columns:64px 1fr;gap:24px;align-items:baseline;
   }
   .creds li .n{
     font-family:'Cormorant Garamond',serif;font-style:italic;
@@ -572,8 +574,7 @@
           <span class="mode-tag">Активный режим</span>
         </div>
         <div class="mode-body">
-          <h3>Сам, через <em>голос</em></h3>
-          <p>Медленный выдох на звуке запускает восстановление тела. Вы действуете сами, ничего с вами не делают. Час - и напряжение уходит.</p>
+          <h3>Работа <em>с голосом</em></h3>
           <p class="mode-for">Для тех, кто не умеет просто лежать, и для кого голос - рабочий инструмент, который к вечеру садится.</p>
         </div>
       </div>
@@ -585,9 +586,9 @@
           <span class="mode-tag">Восстановительный режим</span>
         </div>
         <div class="mode-body">
-          <h3>Со специалистом, через <em>тело и дыхание</em></h3>
-          <p>Дыхательно-телесная процедура для тех дней, когда делать что-то самому уже нет сил. Антистресс, разгрузка после долгого напряжения, выход из выгорания.</p>
-          <p class="mode-for">Для тех, кому нужно, чтобы просто позаботились. Ничего доказывать, ничего производить. Только дыхание, тело и тишина.</p>
+          <h3>Работа <em>с телом и дыханием</em></h3>
+          <p>Дыхательно-телесная процедура для тех, кому делать что-то самому уже нет сил. Антистресс-разгрузка после долгого напряжения, профилактика выгорания.</p>
+          <p class="mode-for">Для тех, кому нужно, чтобы просто позаботились. Только дыхание, тело и тишина.</p>
         </div>
       </div>
     </div>
@@ -600,28 +601,21 @@
     <div class="sec-head">
       <div class="col-l">
         <span class="folio">03 / 06</span>
-        <span class="eye">Форматы</span>
       </div>
-      <h2>Три двери. Заходите по <em>тому, зачем пришли.</em></h2>
+      <h2>Форматы</h2>
     </div>
     <div class="fmt-table">
       <div class="fmt-row rev">
         <div class="rn">I.</div>
-        <h3>Восстановиться для себя</h3>
-        <p>Когда сели батарейки, а до отпуска ещё далеко. Час на то, чтобы тело и голос вернулись к себе - и вы вместе с ними.</p>
-        <div class="who">Разгрузка - Забота о себе</div>
+        <h3>Восстановить себя</h3>
       </div>
       <div class="fmt-row rev">
         <div class="rn">II.</div>
-        <h3>Голос под нагрузкой</h3>
-        <p>Голос - ваш рабочий инструмент: переговоры, эфиры, класс, сцена, блог. К вечеру садится, а завтра снова говорить. Учимся звучать долго и не терять себя.</p>
-        <div class="who">Работа с голосом - Публичность</div>
+        <h3>Восстановить голос</h3>
       </div>
       <div class="fmt-row rev">
         <div class="rn">III.</div>
-        <h3>Для команды</h3>
-        <p>Закрытый формат как элемент заботы о ключевых людях. Не тимбилдинг с песнями, а тихая разгрузка тех, на ком держится дело.</p>
-        <div class="who">Компания - По запросу</div>
+        <h3>Корпоративные практики</h3>
       </div>
     </div>
   </div>
@@ -635,14 +629,9 @@
         <span class="folio">04 / 06</span>
         <span class="eye">Результат</span>
       </div>
-      <h2>То, что нельзя пощупать, мы делаем <em>видимым.</em></h2>
+      <h2>Ваш голос после <em>SPA</em></h2>
     </div>
-    <div class="result-grid">
-      <div class="result-body rev">
-        <p>Работа с состоянием звучит субъективно. Поэтому в начале и в конце встречи вы сами отмечаете по шкале от одного до десяти: уровень напряжения, спокойствие, опору, контакт с голосом.</p>
-        <p>Разница между «до» и «после» - ваш результат в цифре. Не вера и не настроение, а измеримый сдвиг, который видно на бумаге.</p>
-        <span class="marker">- средние значения за практику</span>
-      </div>
+    <div class="result-grid single">
       <div class="chart rev" aria-label="Показатели до и после встречи">
         <div class="chart-row">
           <div class="chart-lbl"><span>Напряжение в теле</span><span class="delta">7,8 -&gt; 3,2</span></div>
@@ -697,19 +686,14 @@
           <img src="img/portrait.jpg" alt="Елизавета Тэйван, портрет" onerror="this.style.display='none'">
         </div>
       </div>
-      <div class="rev">
+      <div class="rev person-col">
         <div class="person-name">Елизавета Тэйван</div>
         <div class="person-role">Профессиональная певица - голосовой практик</div>
-        <div class="person-body">
-          <p>Работает с голосом как с инструментом состояния, а не только как с техникой пения. Ведёт два инструмента SPA: голосовую саморегуляцию и телесно-дыхательную процедуру для дней, когда сил делать что-то самому уже нет.</p>
-          <p>За этим стоит не теория, а сцена: собственный опыт звучания под давлением. С этим она и работает - помогает остаться собой, когда вы «на виду» или, наоборот, когда сил на «на виду» больше нет.</p>
-        </div>
         <ul class="creds">
           <li><span class="n">01.</span><span>Участница шоу «Голос 10» на Первом канале</span></li>
           <li><span class="n">02.</span><span>Гран-при международного конкурса мастерства среди преподавателей 15 стран</span></li>
           <li><span class="n">03.</span><span>Член Федерации педагогов вокального искусства Российской Федерации</span></li>
-          <li><span class="n">04.</span><span>Выступала в составе самого большого хора страны, вошедшего в Книгу рекордов Гиннеса</span></li>
-          <li><span class="n">05.</span><span>Практика работы с состоянием через дыхание, голос и тело <em style="opacity:.55;font-style:italic">- сертификация уточняется</em></span></li>
+          <li><span class="n">04.</span><span>Практика работы с состоянием через дыхание, голос и тело <em style="opacity:.55;font-style:italic">- сертификация уточняется</em></span></li>
         </ul>
       </div>
     </div>
