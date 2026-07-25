@@ -307,49 +307,84 @@
     .modes{grid-template-columns:1fr;gap:56px}
   }
 
-  /* FORMATS - three narrow cards */
+  /* FORMATS - photo-first private-banking cards */
   .fmt-cards{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-    max-width:960px;margin:0 auto;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+    max-width:1080px;margin:0 auto;
   }
   .fmt-card{
+    position:relative;
     aspect-ratio:3/4;
-    background:var(--cream-deep);
-    border:1px solid var(--line);
-    padding:30px 26px;
-    display:flex;flex-direction:column;justify-content:space-between;
-    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-    position:relative;overflow:hidden;
+    overflow:hidden;
+    border-radius:4px;
+    cursor:pointer;
+    color:var(--cream);
+    background:var(--navy-deep);
+    isolation:isolate;
+    text-decoration:none;
+  }
+  .fmt-card .card-media{
+    position:absolute;inset:0;
+    transition:transform 1.2s ease;
+    z-index:0;
+  }
+  .fmt-card .card-media img{
+    width:100%;height:100%;object-fit:cover;
+    filter:saturate(.82) brightness(.68);
+  }
+  .fmt-card:hover .card-media{transform:scale(1.05)}
+  .fmt-card::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,
+      rgba(19,30,42,.15) 0%,
+      rgba(19,30,42,.35) 40%,
+      rgba(19,30,42,.85) 88%,
+      rgba(19,30,42,.95) 100%);
+    transition:background .4s ease;
   }
   .fmt-card::before{
-    content:"";position:absolute;inset:0;pointer-events:none;
-    background:radial-gradient(ellipse 120% 60% at 50% 100%, rgba(169,136,92,.12), transparent 65%);
-    opacity:0;transition:opacity .4s ease;
+    content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+    border:1px solid transparent;
+    border-radius:4px;
+    transition:border-color .4s ease;
   }
-  .fmt-card:hover{
-    transform:translateY(-4px);
-    border-color:var(--bronze);
-    box-shadow:0 18px 36px rgba(28,42,58,.10);
-  }
-  .fmt-card:hover::before{opacity:1}
-  .fmt-card .rn{
+  .fmt-card:hover::before{border-color:rgba(169,136,92,.55)}
+  .fmt-card .card-num{
+    position:absolute;top:24px;left:28px;z-index:2;
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:46px;color:var(--bronze);line-height:1;font-weight:400;
+    font-size:54px;color:var(--bronze);line-height:1;font-weight:400;
+    opacity:.92;text-shadow:0 2px 12px rgba(0,0,0,.3);
   }
-  .fmt-card .card-foot{display:flex;flex-direction:column;gap:16px}
+  .fmt-card .card-eye{
+    position:absolute;top:34px;right:28px;z-index:2;
+    font-family:'Manrope',sans-serif;font-weight:500;
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--bronze);opacity:.75;
+  }
+  .fmt-card .card-title{
+    position:absolute;left:28px;right:28px;bottom:30px;z-index:2;
+    transform:translateY(0);
+    transition:transform .4s ease;
+  }
+  .fmt-card:hover .card-title{transform:translateY(-6px)}
   .fmt-card .hairline{
-    display:block;width:36px;height:1px;background:var(--bronze);
-    transition:width .35s ease;
+    display:block;width:32px;height:1px;background:var(--bronze);
+    margin-bottom:16px;
+    transition:width .4s ease;
   }
-  .fmt-card:hover .hairline{width:64px}
+  .fmt-card:hover .hairline{width:72px}
   .fmt-card h3{
-    font-size:clamp(20px,1.6vw,26px);color:var(--navy);
-    font-weight:500;line-height:1.2;letter-spacing:-.003em;
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:clamp(24px,2vw,32px);line-height:1.12;letter-spacing:-.005em;
+    color:var(--cream);
   }
-  .fmt-card h3 em{font-style:italic;color:var(--bordo);font-weight:500}
+  .fmt-card h3 em{font-style:italic;color:var(--bronze);font-weight:500}
   @media(max-width:860px){
-    .fmt-cards{grid-template-columns:1fr;max-width:420px;gap:18px}
-    .fmt-card{aspect-ratio:5/3;padding:26px 24px}
+    .fmt-cards{grid-template-columns:1fr;max-width:440px;gap:18px}
+    .fmt-card{aspect-ratio:5/4}
+    .fmt-card .card-num{font-size:44px;top:20px;left:22px}
+    .fmt-card .card-eye{top:28px;right:22px}
+    .fmt-card .card-title{left:22px;right:22px;bottom:22px}
   }
 
   /* RESULT - annual-report chart */
@@ -616,27 +651,33 @@
       <h2>Форматы</h2>
     </div>
     <div class="fmt-cards">
-      <div class="fmt-card rev">
-        <div class="rn">I</div>
-        <div class="card-foot">
+      <a href="#cta" class="fmt-card rev">
+        <div class="card-media"><img src="img/space-warm.jpg" alt=""></div>
+        <span class="card-num">I</span>
+        <span class="card-eye">Индивидуально</span>
+        <div class="card-title">
           <span class="hairline"></span>
           <h3>Восстановить <em>себя</em></h3>
         </div>
-      </div>
-      <div class="fmt-card rev">
-        <div class="rn">II</div>
-        <div class="card-foot">
+      </a>
+      <a href="#cta" class="fmt-card rev">
+        <div class="card-media"><img src="img/hat.jpg" alt=""></div>
+        <span class="card-num">II</span>
+        <span class="card-eye">Голос под нагрузкой</span>
+        <div class="card-title">
           <span class="hairline"></span>
           <h3>Восстановить <em>голос</em></h3>
         </div>
-      </div>
-      <div class="fmt-card rev">
-        <div class="rn">III</div>
-        <div class="card-foot">
+      </a>
+      <a href="#cta" class="fmt-card rev">
+        <div class="card-media"><img src="img/space-still.jpg" alt=""></div>
+        <span class="card-num">III</span>
+        <span class="card-eye">Для компании</span>
+        <div class="card-title">
           <span class="hairline"></span>
           <h3>Корпоративные <em>практики</em></h3>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
