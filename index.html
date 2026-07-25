@@ -350,7 +350,7 @@
     position:relative;
     aspect-ratio:1/1;
     border-radius:36px;
-    padding:30px 30px 32px;
+    padding:30px 32px;
     overflow:hidden;
     color:var(--cream);
     text-decoration:none;
@@ -358,7 +358,7 @@
       radial-gradient(140% 100% at 15% 0%, rgba(169,136,92,.16), transparent 55%),
       linear-gradient(158deg, #26323f 0%, #1a2432 55%, #131e2a 100%);
     border:1px solid rgba(169,136,92,.20);
-    display:flex;flex-direction:column;justify-content:flex-end;
+    display:flex;flex-direction:column;justify-content:center;
     transition:transform .45s ease, border-color .45s ease, box-shadow .45s ease;
     isolation:isolate;
   }
@@ -375,40 +375,41 @@
   }
   .fmt-card:hover::after{opacity:1}
   .fmt-card .card-num{
-    position:absolute;top:-12px;right:14px;z-index:0;
+    position:absolute;top:8px;right:18px;z-index:0;
     font-family:'Cormorant Garamond',serif;font-style:italic;
-    font-size:200px;color:var(--bronze);
+    font-size:110px;color:var(--bronze);
     line-height:.85;font-weight:400;
-    opacity:.12;
+    opacity:.18;
     pointer-events:none;user-select:none;
     transition:opacity .5s ease, transform .6s ease;
   }
-  .fmt-card:hover .card-num{opacity:.20;transform:translateY(4px) scale(1.02)}
+  .fmt-card:hover .card-num{opacity:.28;transform:translateY(2px)}
   .fmt-card .card-eye{
-    position:absolute;top:26px;left:30px;z-index:2;
-    font-family:'Manrope',sans-serif;font-weight:500;
-    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--bronze);opacity:.72;
+    position:absolute;top:26px;left:32px;z-index:2;
+    font-family:'Manrope',sans-serif;font-weight:600;
+    font-size:11px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--bronze);opacity:1;
   }
   .fmt-card .card-title{position:relative;z-index:2;transition:transform .4s ease}
-  .fmt-card:hover .card-title{transform:translateY(-4px)}
+  .fmt-card:hover .card-title{transform:translateY(-3px)}
   .fmt-card .hairline{
-    display:block;width:28px;height:1px;background:var(--bronze);
-    margin-bottom:16px;
+    display:block;width:34px;height:1px;background:var(--bronze);
+    margin-bottom:18px;
     transition:width .4s ease;
   }
-  .fmt-card:hover .hairline{width:60px}
+  .fmt-card:hover .hairline{width:64px}
   .fmt-card h3{
     font-family:'Cormorant Garamond',serif;font-weight:500;
-    font-size:clamp(22px,1.9vw,28px);line-height:1.15;letter-spacing:-.005em;
+    font-size:clamp(28px,2.4vw,36px);line-height:1.12;letter-spacing:-.005em;
     color:var(--cream);
   }
   .fmt-card h3 em{font-style:italic;color:var(--bronze);font-weight:500}
   @media(max-width:860px){
     .fmt-cards{grid-template-columns:1fr;max-width:340px;gap:18px}
     .fmt-card{border-radius:32px;padding:26px}
-    .fmt-card .card-num{font-size:150px;top:-6px;right:10px}
+    .fmt-card .card-num{font-size:88px;top:8px;right:16px}
     .fmt-card .card-eye{top:22px;left:26px}
+    .fmt-card h3{font-size:clamp(26px,6vw,30px)}
   }
 
   /* RESULT - annual-report chart */
