@@ -411,6 +411,26 @@
     .fmt-card .card-eye{top:22px;left:26px}
     .fmt-card h3{font-size:clamp(26px,6vw,30px)}
   }
+  /* per-card price CTA under each Formats tile */
+  .fmt-prices{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;
+    max-width:920px;margin:24px auto 0;
+  }
+  .price-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:16px 20px;
+    border-radius:9999px;
+    background:transparent;
+    border:1px solid rgba(28,42,58,.28);
+    color:var(--navy);
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;
+    text-decoration:none;
+    transition:.35s;
+  }
+  .price-btn:hover{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+  @media(max-width:860px){
+    .fmt-prices{grid-template-columns:1fr;max-width:340px;gap:12px;margin-top:18px}
+  }
 
   /* RESULT - annual-report chart */
   .result{background:var(--navy);color:var(--cream)}
@@ -576,6 +596,7 @@
     <div class="nav-links">
       <a href="#method">Два режима</a>
       <a href="#formats">Форматы</a>
+      <a href="#formats">Стоимость</a>
       <a href="#result">Результат</a>
       <a href="#author">Автор</a>
     </div>
@@ -701,6 +722,11 @@
           <h3>Корпоративные <em>практики</em></h3>
         </div>
       </a>
+    </div>
+    <div class="fmt-prices">
+      <a href="#cta" class="price-btn">Цена по запросу</a>
+      <a href="#cta" class="price-btn">Цена по запросу</a>
+      <a href="#cta" class="price-btn">Цена по запросу</a>
     </div>
   </div>
 </section>
