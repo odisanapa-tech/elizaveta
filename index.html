@@ -292,15 +292,43 @@
     border-top:1px solid var(--line-strong);padding-top:56px;
   }
   .mode{display:flex;flex-direction:column;gap:26px}
-  .mode-photo{position:relative}
-  .mode-slot{aspect-ratio:5/4;background:linear-gradient(180deg,#2a1f18 0%,#1a1210 100%);border:1px solid rgba(28,42,58,.14);overflow:hidden}
+  .mode-photo{
+    position:relative;
+    padding:10px;
+    border-radius:28px;
+    background:linear-gradient(160deg, rgba(255,255,255,.35), rgba(234,227,212,.55));
+    border:1px solid rgba(169,136,92,.28);
+    box-shadow:
+      0 28px 60px rgba(28,42,58,.14),
+      0 2px 6px rgba(28,42,58,.05),
+      inset 0 0 0 1px rgba(243,238,227,.6);
+    transition:transform .5s ease, box-shadow .5s ease;
+  }
+  .mode-photo:hover{
+    transform:translateY(-4px);
+    box-shadow:
+      0 34px 70px rgba(28,42,58,.18),
+      0 2px 6px rgba(28,42,58,.06),
+      inset 0 0 0 1px rgba(243,238,227,.6);
+  }
+  .mode-slot{
+    aspect-ratio:5/4;
+    background:linear-gradient(180deg,#2a1f18 0%,#1a1210 100%);
+    overflow:hidden;
+    border-radius:20px;
+    position:relative;
+    box-shadow:inset 0 0 0 1px rgba(169,136,92,.25);
+  }
   .mode-slot[data-tone="warm"]{background:linear-gradient(160deg,#3b2a1e 0%,#241812 60%,#1a1210 100%)}
   .mode-slot[data-tone="cool"]{background:linear-gradient(160deg,#26313d 0%,#1a222c 60%,#131a22 100%)}
   .mode-tag{
-    position:absolute;left:16px;bottom:16px;
-    background:rgba(19,30,42,.72);color:var(--cream);
-    padding:9px 14px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;
-    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    position:absolute;left:22px;bottom:22px;
+    background:rgba(19,30,42,.62);color:var(--cream);
+    padding:11px 18px;font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+    border-radius:9999px;
+    border:1px solid rgba(243,238,227,.18);
+    -webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
   }
   .mode-body h3{
     font-size:clamp(26px,2.6vw,34px);color:var(--navy);
